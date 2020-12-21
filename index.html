@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cash Register Manager</title>
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <section class="section">
+        <h1>Cash Register Manager</h1>
+        <p>Enter the bill amount and cash given by the customer and know minimum number of notes to return.</p>
+        <div>
+            <div class="label">Bill Amount:</div>
+            <input type="number" id="billAmt" > 
+            <button id="nextBtn">Next</button> 
+        </div>
+
+        <div class="cashGivenInput">
+            <div class="label">Cash Given:</div>
+            <input type="number" id="cashGiven" >
+            <button id="checkBtn">Check</button> 
+        </div>
+
+        <div class="changeReturn">
+            <div class="label">Return Change:</div>
+            <div id="output">
+                <table>
+                    <tr>
+                    <th>No.of Notes</td>
+                    <td class="noOfNotes"></td>
+                    <td class="noOfNotes"></td>
+                    <td class="noOfNotes"></td>
+                    <td class="noOfNotes"></td>
+                    <td class="noOfNotes"></td>
+                    <td class="noOfNotes"></td>
+                    <td class="noOfNotes"></td>
+                    </tr>
+                    <tr>
+                    <th>Note</td>
+                    <td>2000</td>
+                    <td>500</td>
+                    <td>100</td>
+                    <td>20</td>
+                    <td>10</td>
+                    <td>5</td>
+                    <td>1</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <div class="noChangeReturn"><p>No amount should be returned</p></div>
+
+    </section>
+
+    <script src="app.js"></script>
+</body>
+</html>
