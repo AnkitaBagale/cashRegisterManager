@@ -39,7 +39,7 @@ checkBtn.addEventListener('click', ()=>{
             alert("Enter valid amount in cash given field");
             return;
         }
-        if(billAmt.value < cashGiven.value){
+        if(billAmt.value > cashGiven.value){
             alert("Cash is less than bill, please enter right amounts");
             return;
         }
