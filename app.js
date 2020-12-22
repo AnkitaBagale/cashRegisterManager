@@ -94,6 +94,7 @@ function clearNoOfNotes(){
 function showError(text){
     errorDiv.style.display = "block";
     errorDiv.innerText= text;
+    changeReturnDiv.style.display = "none";
 }
 
 function hideError(){
