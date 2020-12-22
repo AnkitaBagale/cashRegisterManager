@@ -3,9 +3,10 @@
 var billAmt = document.querySelector("#billAmt");
 var cashGiven = document.querySelector("#cashGiven");
 
+var errorDiv = document.querySelector(".errorMsg");
+
 var cashGivenDiv = document.querySelector(".cashGivenInput");
 var changeReturnDiv = document.querySelector(".changeReturn");
-var nochangeReturnDiv= document.querySelector(".noChangeReturn");
 
 var output= document.querySelector("#output");
 
@@ -19,12 +20,14 @@ var arrayNoteAmt = [2000, 500, 100, 20, 10, 5, 1];
 
 //if bill amt filled, display cash given input field
 nextBtn.addEventListener('click', ()=>{
-    if(billAmt.value){
+    hideError();
+    if(Number(billAmt.value)>0){
+
         nextBtn.style.display = "none";
         cashGivenDiv.style.display = "block";
     }
     else{
-        alert("Enter bill amount to continue");
+        showError("Enter valid bill amount");
     }
 } )
 
@@ -32,26 +35,25 @@ nextBtn.addEventListener('click', ()=>{
 //check btn clicked handler
 checkBtn.addEventListener('click', ()=>{
     clearNoOfNotes();
-
+    hideError();
     //error handling
     var billAmtValue= Number(billAmt.value);
     var cashGivenValue= Number(cashGiven.value);
 
     if(billAmtValue>0 && cashGivenValue>0){
-        
+
         if(!Number.isInteger(cashGivenValue)){
-            alert("Enter valid amount in cash given field");
+            showError("Enter valid amount in cash given field");
             return;
         }
         if(billAmtValue > cashGivenValue){
-            alert("Cash is less than bill, please enter right amounts");
+            showError("Cash is less than bill, please enter right amount");
             return;
         }
-
         //if input valid calculate no. of notes
         calculateNotes(billAmtValue, cashGivenValue);
     } else{
-        alert("Enter bill amount and cash given to continue");
+        showError("Enter valid bill amount and cash given to continue");
         }
 })
 
@@ -60,12 +62,9 @@ function calculateNotes(bill, cash){
     var returnAmt = cash-bill;
     
     if(returnAmt<1){
-        nochangeReturnDiv.style.display = "block";
-        changeReturnDiv.style.display = "none";
+        showError("No amount should be returned");
         return;
     }
-
-    nochangeReturnDiv.style.display = "none";
     changeReturnDiv.style.display = "block";
 
     for(let i=0; i<arrayNoteAmt.length; i++){
@@ -90,4 +89,13 @@ function clearNoOfNotes(){
     for(let notes of noOfNotes){
         notes.innerText = "";
     }
+}
+
+function showError(text){
+    errorDiv.style.display = "block";
+    errorDiv.innerText= text;
+}
+
+function hideError(){
+    errorDiv.style.display = "none";
 }
