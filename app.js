@@ -1,21 +1,21 @@
 
 
-var billAmt = document.querySelector("#billAmt");
-var cashGiven = document.querySelector("#cashGiven");
+const billAmt = document.querySelector("#billAmt");
+const cashGiven = document.querySelector("#cashGiven");
 
-var errorDiv = document.querySelector(".errorMsg");
+const errorDiv = document.querySelector(".errorMsg");
 
-var cashGivenDiv = document.querySelector(".cashGivenInput");
-var changeReturnDiv = document.querySelector(".changeReturn");
+const cashGivenDiv = document.querySelector(".cashGivenInput");
+const changeReturnDiv = document.querySelector(".changeReturn");
 
-var output= document.querySelector("#output");
+const output= document.querySelector("#output");
 
-var nextBtn = document.querySelector("#nextBtn");
-var checkBtn = document.querySelector("#checkBtn");
+const nextBtn = document.querySelector("#nextBtn");
+const checkBtn = document.querySelector("#checkBtn");
 
-var noOfNotes= document.querySelectorAll(".noOfNotes");
+const noOfNotes= document.querySelectorAll(".noOfNotes");
 
-var arrayNoteAmt = [2000, 500, 100, 20, 10, 5, 1];
+const arrayNoteAmt = [2000, 500, 100, 20, 10, 5, 1];
 
 
 //if bill amt filled, display cash given input field
@@ -37,8 +37,8 @@ checkBtn.addEventListener('click', ()=>{
     clearNoOfNotes();
     hideError();
     //error handling
-    var billAmtValue= Number(billAmt.value);
-    var cashGivenValue= Number(cashGiven.value);
+    let billAmtValue= Number(billAmt.value);
+    let cashGivenValue= Number(cashGiven.value);
 
     if(billAmtValue>0 && cashGivenValue>0){
 
@@ -59,7 +59,7 @@ checkBtn.addEventListener('click', ()=>{
 
 //to calculate no. of notes
 function calculateNotes(bill, cash){
-    var returnAmt = cash-bill;
+    let returnAmt = cash-bill;
     
     if(returnAmt<1){
         showError("No amount should be returned");
